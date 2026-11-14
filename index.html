@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vortex | Premium Apps</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#1B2559;--ink:#1B2559;--muted:#3E4670;--blue:#2F45C8;--gold:#8C6A1A;--glass:rgba(255,255,255,.62);--line:rgba(255,255,255,.9)}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:'Nunito',system-ui,sans-serif;color:var(--ink);min-height:100vh;background:#8fcf5a}
+body::before{content:"";position:fixed;inset:0;z-index:-1;transform:translate3d(0,var(--py,0px),0) scale(1.06);will-change:transform;background:linear-gradient(rgba(255,255,255,.14),rgba(255,255,255,.14)),url(assets/bg.jpg) center center/cover no-repeat;pointer-events:none}
+main{position:relative;max-width:480px;margin:0 auto;padding:28px 16px 40px;display:flex;flex-direction:column;gap:14px}
+.glass{background:var(--glass);border:1.5px solid var(--line);border-radius:22px;backdrop-filter:blur(18px) saturate(1.2);-webkit-backdrop-filter:blur(18px) saturate(1.2);box-shadow:0 8px 24px rgba(27,37,89,.12)}
+.hero{text-align:center;padding:26px 20px 22px}
+.hero img{width:96px;height:96px;border-radius:24px;display:block;margin:0 auto 12px;box-shadow:0 6px 18px rgba(27,37,89,.25)}
+h1{font-family:'Lilita One',sans-serif;font-weight:400;font-size:40px;line-height:1;margin:0;color:var(--navy);letter-spacing:.5px}
+.sub{margin:6px 0 0;font-size:12px;font-weight:800;letter-spacing:.32em;color:var(--gold)}
+.tag{margin:10px 0 0;font-style:italic;color:var(--muted);font-size:16px}
+.chips{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+.chips span{background:rgba(255,255,255,.75);border:1px solid var(--line);border-radius:999px;padding:6px 12px;font-size:13px;font-weight:700}
+.cta{display:flex;align-items:center;justify-content:center;gap:10px;min-height:54px;border-radius:18px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:17px;box-shadow:0 8px 20px rgba(27,37,89,.3)}
+.cta:hover{background:#24307a}
+.sec{font-family:'Lilita One',sans-serif;font-weight:400;font-size:26px;margin:8px 4px 0;color:var(--navy);text-shadow:-2px -2px 0 #fff,2px -2px 0 #fff,-2px 2px 0 #fff,2px 2px 0 #fff,0 -2px 0 #fff,0 2px 0 #fff,-2px 0 0 #fff,2px 0 0 #fff,0 3px 8px rgba(255,255,255,.6)}
+.sec-note{margin:-4px 4px 0;font-size:14px;font-weight:800;color:var(--navy);text-shadow:-1.5px -1.5px 0 #fff,1.5px -1.5px 0 #fff,-1.5px 1.5px 0 #fff,1.5px 1.5px 0 #fff,0 -1.5px 0 #fff,0 1.5px 0 #fff,-1.5px 0 0 #fff,1.5px 0 0 #fff}
+.app summary{list-style:none;display:flex;align-items:center;gap:12px;padding:12px 14px;cursor:pointer;min-height:76px}
+.app summary::-webkit-details-marker{display:none}
+.app summary img{border-radius:14px;flex-shrink:0;box-shadow:0 6px 12px rgba(27,37,89,.28),0 2px 4px rgba(27,37,89,.18)}
+.meta{display:flex;flex-direction:column;flex:1;min-width:0}
+.nm{font-family:'Lilita One',sans-serif;font-size:20px;line-height:1.1}
+.ct{font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--gold);margin-top:2px}
+.from{font-size:13px;color:var(--muted);font-weight:700;margin-top:3px}
+.from b{font-family:'Lilita One',sans-serif;font-weight:400;font-size:18px;color:var(--navy)}
+.chev{display:inline-flex;align-items:center;gap:6px;min-height:40px;padding:0 12px 0 14px;border-radius:999px;background:var(--navy);color:#fff;font-weight:800;font-size:13px;flex-shrink:0;box-shadow:0 3px 8px rgba(27,37,89,.3)}
+.chev svg{transition:transform .2s}
+.app[open] .chev svg{transform:rotate(180deg)}
+.t-open{display:none}
+.app[open] .t-open{display:inline}
+.app[open] .t-closed{display:none}
+.body{padding:0 16px 16px}
+.ben{list-style:none;margin:0 0 12px;padding:12px 0 0;border-top:1px solid rgba(27,37,89,.12);display:flex;flex-direction:column;gap:8px}
+.ben li{display:flex;align-items:center;gap:10px;font-size:15px}
+.ck{width:22px;height:22px;border-radius:50%;background:var(--blue);display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.lbl{margin:0 0 6px;font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.rows{list-style:none;margin:0;padding:0}
+.row{display:flex;align-items:center;gap:10px;padding:8px 0;border-bottom:1px solid rgba(27,37,89,.1)}
+.row:last-child{border-bottom:0}
+.pk{flex:1;font-weight:700;font-size:15px}
+.pr{font-family:'Lilita One',sans-serif;font-size:19px;color:var(--navy);min-width:48px;text-align:right}
+.order{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:0 16px;border-radius:999px;background:var(--navy);color:#fff;text-decoration:none;font-weight:800;font-size:14px}
+.order:hover{background:var(--blue)}
+.steps{list-style:none;margin:0;padding:16px 18px;display:flex;flex-direction:column;gap:12px;counter-reset:s}
+.steps li{display:flex;align-items:center;gap:12px;font-size:15px;font-weight:600}
+.steps li::before{counter-increment:s;content:counter(s);width:28px;height:28px;border-radius:50%;background:var(--navy);color:#fff;font-weight:800;font-size:13px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0}
+.info{padding:16px 18px;font-size:15px}
+.info p{margin:0 0 6px}
+a{color:var(--blue);font-weight:700}
+.info .note{font-size:13px;font-style:italic;color:var(--muted);margin:0}
+footer{text-align:center;font-size:12px;font-weight:700;color:var(--navy);text-shadow:0 1px 0 rgba(255,255,255,.8);margin-top:6px}
+@keyframes rise{from{opacity:0;transform:translateY(18px) scale(.98)}to{opacity:1;transform:none}}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+@keyframes drop{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+@keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(220%) skewX(-20deg)}}
+.anim{animation:rise .55s cubic-bezier(.2,.8,.2,1) both;animation-delay:var(--d,0ms)}
+.hero img{animation:floaty 3.6s ease-in-out infinite}
+.app summary{transition:transform .15s ease}
+.app summary:active{transform:scale(.97)}
+.app summary img{transition:transform .25s cubic-bezier(.3,1.6,.5,1)}
+.app summary:hover img{transform:rotate(-6deg) scale(1.06)}
+.app[open] summary img{transform:rotate(-6deg) scale(1.06)}
+.app[open] .body{animation:drop .3s ease both}
+.app[open] .rows .row{animation:rise .35s ease both}
+.app[open] .rows .row:nth-child(2){animation-delay:.05s}
+.app[open] .rows .row:nth-child(3){animation-delay:.1s}
+.app[open] .rows .row:nth-child(4){animation-delay:.15s}
+.order,.chev{position:relative;overflow:hidden;transition:transform .12s ease}
+.order:active,.chev:active{transform:scale(.92)}
+.order::after{content:"";position:absolute;top:0;left:0;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);animation:shine 2.8s ease-in-out infinite}
+.snd{position:absolute;top:12px;right:12px;width:44px;height:44px;border-radius:50%;border:1.5px solid var(--line);background:rgba(255,255,255,.7);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;color:var(--navy)}
+.snd .off{display:none}
+.snd[aria-pressed="false"] .on{display:none}
+.snd[aria-pressed="false"] .off{display:inline}
+.hero{position:relative}
+.reveal{opacity:0;transform:translateY(32px) scale(.96);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0ms)}
+.reveal.from-l{transform:translateX(-36px) rotate(-1.5deg)}
+.reveal.from-r{transform:translateX(36px) rotate(1.5deg)}
+.reveal.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.reveal{opacity:1!important;transform:none!important}*,*::before,*::after{animation:none!important;transition:none!important}}
+a:focus-visible,summary:focus-visible,.snd:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+</style>
+</head>
+<body>
+<main>
+<header class="glass hero">
+<button class="snd" type="button" aria-pressed="true" aria-label="Efek suara"><svg class="on" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M18.5 5.5a9 9 0 0 1 0 13"/></svg><svg class="off" aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 5L6 9H3v6h3l5 4V5z"/><path d="M22 9l-6 6M16 9l6 6"/></svg></button>
+<img src="assets/vortex.webp" alt="Logo Vortex" width="96" height="96">
+<h1>Vortex</h1>
+<p class="sub">PREMIUM APPS</p>
+<p class="tag">Aplikasi Premium. Layanan Premium.</p>
+<div class="chips"><span>Full Garansi</span><span>Fast Respon</span><span>Panduan Login</span></div>
+</header>
+<h2 class="sec">Katalog Harga</h2>
+<p class="sec-note">Ketuk aplikasi untuk lihat paket, lalu tekan Order.</p>
+<details class="glass app">
+<summary><img src="assets/capcut.webp" alt="Logo CapCut Pro" width="56" height="56"><span class="meta"><span class="nm">CapCut Pro</span><span class="ct">Edit video | khusus Android</span><span class="from">mulai <b>10K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Tanpa watermark</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Efek, filter &amp; template Pro</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Ekspor resolusi tinggi</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">7 Hari Sharing</span><span class="pr">10K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20CapCut%20Pro%20paket%207%20Hari%20Sharing%20%2810K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">7 Hari Private</span><span class="pr">15K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20CapCut%20Pro%20paket%207%20Hari%20Private%20%2815K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">1 Bulan Sharing</span><span class="pr">25K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20CapCut%20Pro%20paket%201%20Bulan%20Sharing%20%2825K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">1 Bulan Private</span><span class="pr">45K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20CapCut%20Pro%20paket%201%20Bulan%20Private%20%2845K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/alight.webp" alt="Logo Alight Motion" width="56" height="56"><span class="meta"><span class="nm">Alight Motion</span><span class="ct">Pro | 1 tahun</span><span class="from">mulai <b>10K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Tanpa watermark</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Semua efek &amp; preset premium</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Ekspor resolusi tinggi</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">Akun dari Vortex</span><span class="pr">10K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Alight%20Motion%20paket%20Akun%20dari%20Vortex%20%2810K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">Pakai email sendiri</span><span class="pr">15K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Alight%20Motion%20paket%20Pakai%20email%20sendiri%20%2815K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/meitu.webp" alt="Logo Meitu VIP" width="56" height="56"><span class="meta"><span class="nm">Meitu VIP</span><span class="ct">Edit foto | all device</span><span class="from">mulai <b>15K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Semua filter &amp; retouch VIP</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Fitur edit foto AI</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Bisa Android &amp; iOS</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">7 Hari</span><span class="pr">15K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Meitu%20VIP%20paket%207%20Hari%20%2815K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">14 Hari</span><span class="pr">25K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Meitu%20VIP%20paket%2014%20Hari%20%2825K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/canva.webp" alt="Logo Canva Pro" width="56" height="56"><span class="meta"><span class="nm">Canva Pro</span><span class="ct">Desain | invite</span><span class="from">mulai <b>10K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Template &amp; elemen premium</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Hapus latar belakang sekali klik</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Pakai akun &amp; email sendiri, diundang ke tim Vortex</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">Invite 1 Bulan</span><span class="pr">10K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Canva%20Pro%20paket%20Invite%201%20Bulan%20%2810K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/spotify.webp" alt="Logo Spotify Premium" width="56" height="56"><span class="meta"><span class="nm">Spotify Premium</span><span class="ct">Musik | full garansi</span><span class="from">mulai <b>20K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Tanpa iklan</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Download &amp; dengar offline</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Skip lagu sepuasnya</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">Individual 1 Bulan</span><span class="pr">25K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Spotify%20Premium%20paket%20Individual%201%20Bulan%20%2825K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">Family 1 Bulan</span><span class="pr">20K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Spotify%20Premium%20paket%20Family%201%20Bulan%20%2820K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/scribd.webp" alt="Logo Scribd Premium" width="56" height="56"><span class="meta"><span class="nm">Scribd Premium</span><span class="ct">Baca | private</span><span class="from">mulai <b>10K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Akses dokumen, ebook &amp; audiobook</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Download dokumen</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Akun private, bukan sharing</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">1 Bulan</span><span class="pr">10K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Scribd%20Premium%20paket%201%20Bulan%20%2810K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/duolingo.webp" alt="Logo Duolingo Super" width="56" height="56"><span class="meta"><span class="nm">Duolingo Super</span><span class="ct">Belajar bahasa</span><span class="from">mulai <b>15K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Hati tanpa batas</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Tanpa iklan</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Latihan &amp; review personal</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">1 Bulan</span><span class="pr">15K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Duolingo%20Super%20paket%201%20Bulan%20%2815K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/camscanner.webp" alt="Logo CamScanner" width="56" height="56"><span class="meta"><span class="nm">CamScanner</span><span class="ct">Scan dokumen | premium</span><span class="from">mulai <b>10K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Hasil scan tanpa watermark</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Ubah ke PDF &amp; teks (OCR)</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Kualitas scan HD</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">1 Bulan Sharing</span><span class="pr">10K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20CamScanner%20paket%201%20Bulan%20Sharing%20%2810K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details><details class="glass app">
+<summary><img src="assets/zoom.webp" alt="Logo Zoom Private" width="56" height="56"><span class="meta"><span class="nm">Zoom Private</span><span class="ct">Meeting | 100 peserta</span><span class="from">mulai <b>15K</b></span></span><span class="chev"><span class="t-closed">Lihat paket</span><span class="t-open">Tutup</span><svg aria-hidden="true" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6 6-6"/></svg></span></summary>
+<div class="body"><ul class="ben"><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Hingga 100 peserta</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Bebas batas 40 menit</li><li><span class="ck"><svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>Bisa rekam meeting</li></ul><p class="lbl">Pilihan paket</p><ul class="rows"><li class="row"><span class="pk">7 Hari</span><span class="pr">15K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Zoom%20Private%20paket%207%20Hari%20%2815K%29.%20Masih%20ada%20stok%3F">Order</a></li><li class="row"><span class="pk">14 Hari</span><span class="pr">20K</span><a class="order" href="https://wa.me/6283162179874?text=Halo%20Vortex%2C%20saya%20mau%20order%20Zoom%20Private%20paket%2014%20Hari%20%2820K%29.%20Masih%20ada%20stok%3F">Order</a></li></ul></div>
+</details>
+<h2 class="sec">Cara Order</h2>
+<ol class="glass steps"><li>Pilih paket, tekan Order</li><li>Admin konfirmasi stok</li><li>Transfer, lalu kirim bukti bayar</li><li>Akun dikirim beserta panduan login</li></ol>
+<footer>© 2026 Vortex | Premium Apps</footer>
+</main>
+<script>
+(function(){
+  var on = true;
+  try { on = localStorage.getItem('vx-sound') !== 'off'; } catch(e) {}
+  var btn = document.querySelector('.snd');
+  function setBtn(){ if (btn) btn.setAttribute('aria-pressed', on ? 'true' : 'false'); }
+  setBtn();
+  var ctx = null;
+  function ac(){ try { if (!ctx) ctx = new (window.AudioContext || window.webkitAudioContext)(); if (ctx.state === 'suspended') ctx.resume(); return ctx; } catch(e) { return null; } }
+  function tone(freq, start, dur, type, vol, toFreq){
+    var c = ac(); if (!c) return;
+    try {
+      var t = c.currentTime + start, o = c.createOscillator(), g = c.createGain();
+      o.type = type || 'sine'; o.frequency.setValueAtTime(freq, t);
+      if (toFreq) o.frequency.exponentialRampToValueAtTime(toFreq, t + dur);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol || 0.18, t + 0.01);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + dur);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t + dur + 0.02);
+    } catch(e) {}
+  }
+  function pop(){ if (on) tone(520, 0, 0.09, 'sine', 0.2, 980); }
+  function ding(){ if (on) { tone(880, 0, 0.16, 'triangle', 0.16); tone(1320, 0.09, 0.22, 'triangle', 0.14); } }
+  function blip(){ tone(660, 0, 0.07, 'square', 0.06); }
+  document.addEventListener('click', function(ev){
+    var el = ev.target;
+    if (el.closest('.snd')) { on = !on; setBtn(); try { localStorage.setItem('vx-sound', on ? 'on' : 'off'); } catch(e) {} if (on) blip(); return; }
+    if (el.closest('.order')) { ding(); return; }
+    if (el.closest('summary')) { pop(); }
+  });
+  var reduce = false; try { reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches; } catch(e) {}
+  var items = document.querySelectorAll('main > *'), k = 0;
+  for (var i = 0; i < items.length; i++) {
+    var el2 = items[i]; el2.classList.add('reveal');
+    if (el2.classList.contains('app')) { el2.classList.add(k % 2 ? 'from-r' : 'from-l'); k++; }
+  }
+  if (reduce || !('IntersectionObserver' in window)) {
+    for (var j = 0; j < items.length; j++) items[j].classList.add('in');
+  } else {
+    var batch = 0, timer = null;
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){
+        if (en.isIntersecting) {
+          en.target.style.setProperty('--d', (batch++ * 70) + 'ms');
+          en.target.classList.add('in'); io.unobserve(en.target);
+          clearTimeout(timer); timer = setTimeout(function(){ batch = 0; }, 120);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    for (var m = 0; m < items.length; m++) io.observe(items[m]);
+  }
+  if (!reduce) {
+    var ticking = false, root = document.documentElement;
+    function par(){
+      var max = window.innerHeight * 0.025, h = Math.max(1, root.scrollHeight - window.innerHeight);
+      var p = Math.min(1, Math.max(0, window.scrollY / h));
+      root.style.setProperty('--py', ((0.5 - p) * 2 * max).toFixed(1) + 'px'); ticking = false;
+    }
+    window.addEventListener('scroll', function(){ if (!ticking) { ticking = true; requestAnimationFrame(par); } }, { passive: true });
+    par();
+  }
+})();
+</script>
+</body>
+</html>
